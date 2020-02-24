@@ -4,6 +4,7 @@ import request from 'superagent';
 import Header from './Header.js';
 import CellCard from './CellCard.js'
 import './App.css';
+import PhoneForm from './PhoneForm.js'
 //
 
 
@@ -34,7 +35,7 @@ async componentDidMount() {
    
 
       <CellList phoneData = {this.state.cellState} />
-
+      <PhoneForm />
  
 
  </>
