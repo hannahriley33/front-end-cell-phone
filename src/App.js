@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import CellList from './CellList.js'
 import request from 'superagent';
 import Header from './Header.js';
-import CellCard from './CellCard.js'
-import './App.css';
+import CellDetail from './CellDetail.js'
+import PhoneForm from './PhoneForm.js'
+import UpdatePhone from './UpdatePhone.js'
+import { 
+  Route, 
+  Link,
+  BrowserRouter as Router, 
+} from 'react-router-dom';
+//
 
 
 
@@ -20,9 +27,7 @@ async componentDidMount() {
   // console.log(this.state.cellState);
   this.setState({ cellState: cellData.body })
 
-  
 };
-
 
   render() {
 
@@ -31,9 +36,16 @@ async componentDidMount() {
       <Header 
      title="Cell Phones"   />
    
-
+     
+      <Router>
       <CellList phoneData = {this.state.cellState} />
-
+          <div>
+            <Route exact path="/cell_phone/add" component={ PhoneForm }/>
+            <Route exact path="/cell_phone" component={App} />
+            <Route exact path="/cell_phone/:phoneName" component={CellDetail} />
+            <Route exact path='/cell_phone/:updatePhone' component={UpdatePhone} />
+          </div>
+      </Router>
  
 
  </>
