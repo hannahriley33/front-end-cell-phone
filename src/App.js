@@ -4,7 +4,13 @@ import request from 'superagent';
 import Header from './Header.js';
 import CellCard from './CellCard.js'
 import './App.css';
+import CellDetail from './CellDetail.js'
 import PhoneForm from './PhoneForm.js'
+import { 
+  Route, 
+  Link,
+  BrowserRouter as Router, 
+} from 'react-router-dom';
 //
 
 
@@ -36,6 +42,15 @@ async componentDidMount() {
 
       <CellList phoneData = {this.state.cellState} />
       <PhoneForm />
+      <Router>
+          <div>
+            
+            <Link to ="/">Home</Link>
+            <Route exact path="/cell_phones" component={App} />
+           
+            <Route exact path="/cell_phones/:phoneName" component={CellDetail} />
+          </div>
+      </Router>
  
 
  </>
